@@ -1,0 +1,19 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "header.html" %}
+<body class="register" style="margin-top: 6%; background-color: #D3D3D3;">
+
+
+	<form action="/enquiry/" method="post">
+	    {% csrf_token %}
+	    {{ form.as_table }}
+	    <input type="submit" value="Submit" />
+	</form>
+<{% include "footer.html"%}
+</body>
+
+</html>

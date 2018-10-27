@@ -1,0 +1,464 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="utf-8" http-equiv="encoding">
+  <meta charset="UTF-8">
+  <title>Basic DataGrid - jQuery EasyUI Demo</title>
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{STATIC}}css/easyui.css">
+  <link rel="stylesheet" type="text/css" href="{{STATIC}}css/icon.css">
+  <link rel="stylesheet" type="text/css" href="{{STATIC}}css/demo.css">
+  <!-- <script type="text/javascript" src="{{STATIC}}css/jquery.min.js"></script> -->
+  <script type="text/javascript" src="{{STATIC}}css/jquery.easyui.min.js"></script>
+  
+  <!----------------------------------------------!-->
+
+<script src="{{STATIC}}js/grid/grid-0.5.6/grid-0.5.6.js" type="text/javascript"></script>
+<link href="{{STATIC}}js/grid/grid-0.5.6/grid-0.5.6.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <div class="col-md-12"style="margin:100px 0 30px 0;">
+
+  <button type="button" class="btn btn-success">Sub Locality</button>
+  <button type="button" class="btn btn-success">Message</button>
+  <button type="button" class="btn btn-success">Price</button>
+  <button type="button" class="btn btn-success">Price Per Area</button>
+  <button type="button" class="btn btn-success">Avl/Req</button>
+  <button type="button" class="btn btn-success">Flat Type</button>
+  <button type="button" class="btn btn-success">Default</button>
+  <button type="button" class="btn btn-success">Primary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-success">Info</button>
+  <button type="button" class="btn btn-success">Warning</button>
+  <button type="button" class="btn btn-success">Danger</button>
+  <button type="button" class="btn btn-success">Default</button>
+  <button type="button" class="btn btn-success">Primary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-success">Info</button>
+  <button type="button" class="btn btn-success">Warning</button>
+  <button type="button" class="btn btn-success">Danger</button>
+
+  </div>
+
+ <div class="col-md-12" >
+ <div class="col-md-3">
+  <div class="dropdown" >
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    --Select Level of Match
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    
+  </ul>
+</div>
+</div>
+
+  <div class="col-md-3">
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    --Select Flat Type
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="google.com">1 BHK</a></li>
+    <li><a href="#">2 BHK</a></li>
+    <li><a href="#">3 BHK</a></li>
+    <li><a href="#">4 BHK</a></li>
+    <li><a href="#">5 BHK</a></li>
+    <li><a href="#">6 BHK</a></li>
+    <li><a href="#">7 BHK</a></li>
+    <li><a href="#">8 BHK</a></li>
+    <!--<li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>!-->
+  </ul>
+</div>
+</div>
+{% regroup cities by country as country_list %}
+
+<ul>
+{% for country in country_list %}
+    <li>{{ country.grouper }}
+    <ul>
+        {% for item in country.list %}
+          <li>{{ item.name }}: {{ item.population }}</li>
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
+</ul>
+  <div class="col-md-3">
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    --Select Other Information
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+</div>
+
+ <div class="col-md-3" style="margin-top:12px;">
+
+          <select id="filter_lease_sale_rent">
+          <option value="">-- Rent / Sale / Lease --</option>
+          <option value="rent">Rent</option> 
+          <option value="sale">Sale</option>
+          <option value="lease">Lease</option>
+          </select>
+  </div>
+
+
+  <div class="col-md-3" style="padding-top: 50px">
+  <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    --Select Sub-Locality--
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+</div>
+
+
+<div class="col-md-3" style="padding-top: 50px">
+  <input class="easyui-searchbox" data-options="prompt:'Please Input Value',searcher:doSearch" style="width:80%; height:150%; outline:  "></input>        
+  </div>
+
+
+ <div class="col-md-3" style="padding-top: 50px">
+  <b>1000 Rs</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="4" data-slider-value="[25,45]"/> <b>Rs 1000000</b>
+  </div>
+
+
+  <div class="col-md-3" style="padding-top: 50px">
+  <div class="checkbox-inline">
+  <label><input type="checkbox" value="">AVL</label>
+</div>
+
+  <div class="checkbox-inline">
+  <label><input type="checkbox" value="">REQ</label>
+</div>
+
+  <div class="checkbox-inline">
+  <label><input type="checkbox" value="">Can't Say</label>
+</div>
+  </div>
+</div>
+
+
+
+<!-- <div class="page-header">
+    <h1>Bootstrap Editable Grid <small>A template, demonstrating a jquery Edtiable Grid component</small></h1>
+</div> -->
+
+<!-- Bootstrap Editable Grid - START -->
+<!--
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="text-center">Table Grid <span class="fa fa-edit pull-right bigicon"></span></h4>
+        </div>
+        <div class="panel-body text-center">
+            <div id="grid1"></div>
+        </div>
+    </div>
+</div>!-->
+ <!--<table id="example" class="display" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>!-->
+
+ <button id="btnAdd">Add Row</button>
+    <br><br>
+    <table id="grid"></table>
+    <div id="dialog" style="display:none">
+        <input id="ID" type="hidden">
+        <table border="0">
+            <tbody><tr>
+                <td><label for="Name">Name:</label></td>
+                <td><input id="Name" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="PlaceOfBirth">Place Of Birth:</label></td>
+                <td><input id="PlaceOfBirth" type="text"></td>
+            </tr>
+        </tbody></table>
+    </div>
+<!-- you need to include the shieldui css and js assets in order for the grids to work -->
+<link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
+<script type="text/javascript" src="http://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+
+<script type="text/javascript" src="http://www.prepbootstrap.com/Content/data/shortGridData.js"></script>
+
+<script type="text/javascript">
+var a ='hello';
+var mydata
+// var geocodingAPI = "../getfbdata";
+// $.getJSON(geocodingAPI, function (json) 
+// {   datatype: 'json',
+//     mydata = json['records'][0];
+//     alert(mydata)
+// });
+
+
+        $.getJSON('@Url.Action("../getfbdata", "Home")', function(json) {
+
+            datatype: 'json',
+                mydata = records;
+            alert(mydata);
+
+        });
+$(document).ready(function () {
+    var data, grid, dialog;
+    data = [
+        { "ID": 1, "Name": "Hristo Stoichkov", "PlaceOfBirth": "Plovdiv, Bulgaria" },
+        { "ID": 2, "Name": "Ronaldo Luís Nazário de Lima", "PlaceOfBirth": "Rio de Janeiro, Brazil" },
+        { "ID": 3, "Name": "David Platt", "PlaceOfBirth": "Chadderton, Lancashire, England" },
+        { "ID": 4, "Name": "Manuel Neuer", "PlaceOfBirth": "Gelsenkirchen, West Germany" },
+        { "ID": 5, "Name": "James Rodríguez", "PlaceOfBirth": "Cúcuta, Colombia" },
+        { "ID": 6, "Name": "Dimitar Berbatov", "PlaceOfBirth": "Blagoevgrad, Bulgaria" }
+    ];
+
+    /*dialog = $("#dialog").dialog({
+        title: "Add/Edit Record",
+        autoOpen: false,
+        resizable: false,
+        modal: true,
+        buttons: {
+            "Save": Save,
+            "Cancel": function () { $(this).dialog("close"); }
+        }
+    });*/
+    function Edit(e) {
+        $("#ID").val(e.data.id);
+        $("#Name").val(e.data.record.Name);
+        $("#PlaceOfBirth").val(e.data.record.PlaceOfBirth);
+        $("#dialog").dialog("open");
+    }
+    function Delete(e) {
+        if (confirm("Are you sure?")) {
+            grid.removeRow(e.data.id);
+        }
+    }
+    function Save() {
+        if ($("#ID").val()) {
+            var id = parseInt($("#ID").val());
+            grid.updateRow(id, { "ID": id, "Name": $("#Name").val(), "PlaceOfBirth": $("#PlaceOfBirth").val() });
+        } else {
+            grid.addRow({ "ID": grid.count() + 1, "Name": $("#Name").val(), "PlaceOfBirth": $("#PlaceOfBirth").val() });
+        }
+        $(this).dialog("close");
+    }
+    
+    
+   grid = $("#grid").grid({
+        dataSource: "../getfbdata",
+        uiLibrary: "bootstrap",
+        
+        columns: [
+            /*{ field: "ID" },
+            { field: "Name" },
+            { field: "PlaceOfBirth", title: "Place Of Birth" },
+            { title: "", width: 20, type: "icon", icon: "ui-icon-pencil", tooltip: "Edit", events: { "click": Edit } },
+            { title: "", width: 20, type: "icon", icon: "ui-icon-close", tooltip: "Delete", events: { "click": Delete } }*/
+            
+           { title: "Flat Type", field: "flat_type"},
+            { field: "project_name", sortable: true, width: 150 },
+            { field: "person_name"},
+            { field: "package"},
+            { field: "project_qoute"},
+           
+            { field: "price_per_area"},
+
+            { field: "message"},
+            { field: "price_list"},
+            { field: "person_mobile"},
+            { field: "broker_arrangement"},
+            { field: "area"},
+            { field: "other_mobiles"},
+            { field: "lease_type"},
+            { field: "deposit"},
+            { field: "avl_req"},
+            { field: "address_detail"},
+            { field: "price"},
+            { field: "other"},
+            { field: "project_detail"},
+            { field: "builder_name"},
+            { title: "", width: 20, type: "icon", icon: "ui-icon-pencil", tooltip: "Edit", events: { "click": Edit } },
+            { title: "", width: 20, type: "icon", icon: "ui-icon-close", tooltip: "Delete", events: { "click": Delete } }
+        ],
+        pager: { enable: true, limit: 5, sizes: [5, 10, 20,30] }
+    });
+
+    $("#btnAdd").on("click", function () {
+        $("#ID").val("");
+        $("#Name").val("");
+        $("#PlaceOfBirth").val("");
+        $("#dialog").dialog("open");
+    });
+});
+</script>
+
+<style type="text/css">
+    .sui-button-cell
+    {
+        text-align: center;
+    }
+
+    .sui-checkbox
+    {
+        font-size: 17px !important;
+        padding-bottom: 4px !important;
+    }
+
+    .deleteButton img
+    {
+        margin-right: 3px;
+        vertical-align: bottom;
+    }
+
+    .bigicon
+    {
+        color: #5CB85C;
+        font-size: 20px;
+    }
+
+    .ui-icon, .ui-widget-content .ui-icon {
+    background-image: url("{{STATIC}}images/ui-icons_222222_256x240.png");
+}
+</style>
+
+
+
+ <!--  <table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+      data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
+    <thead>
+      <tr>
+        <th data-options="field:'itemid',width:80">Item ID</th>
+        <th data-options="field:'productid',width:100">Product</th>
+        <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+        <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+        <th data-options="field:'attr1',width:250">Attribute</th>
+        <th data-options="field:'status',width:60,align:'center'">Status</th>
+      </tr>
+
+  </table>
+ -->
+
+
+
+<!-- 
+   <div class="containercontent">
+        <table id="Table1" class="scroll" cellpadding="0" cellspacing="0"></table> 
+        <div id="Div1" class="scroll" style="text-align:center;"></div>         
+    </div>
+    
+    
+    <div class="toolbarcontainer">
+        <manoli:ViewSourceControl ID="ViewSourceControl" runat="server" Text="Show ASPX"
+            DisplayState="Button" CodeFile="jqGrid.aspx" />
+        <manoli:ViewSourceControl ID="ViewSourceControl1" runat="server" Text="Show CodeBehind"
+            DisplayState="Button" CodeFile="jqGrid.aspx.cs" />
+    </div>
+    
+    <ww:AjaxMethodCallback runat="server" ID="Proxy" />
+    
+ 
+    
+ 
+    <script type="text/javascript"> 
+        $(document).ready(function() {
+            var gdCustomers = $("#gdCustomers");
+            var lastSel;
+ 
+            gdCustomers.jqGrid({
+                url: "jqGrid.aspx?CallbackTarget=Proxy&Method=GetCustomerList",
+                editurl: "jqGrid.aspx?CallbackTarget=Proxy&Method=UpdateCustomerRow",
+                datatype: "json",
+                colNames: ["Name", "Company", "Entered"],
+                colModel: [
+                             { name: "Name", index: "Name", width: 150, editable: true, edittype: "text" },
+                             { name: "CompanyName", index: "CompanyName", width: 200, editable: true },
+                             { name: "Entered", index: "Entered", width: 75, editable: true, datefmt: "MM/dd/yyyy" }
+                             ],
+                sortname: "Company",
+                rowNum: 14,
+                viewrecords: true,
+                sortorder: "asc",
+                caption: "Northwind Customer List",
+                width: 800,
+                height: 308,
+                pager: "#gdCustomersPager",
+                ondblClickRow: function(id) {
+                    gdCustomers.restoreRow(lastSel);
+                    gdCustomers.editRow(id, true);
+                    lastSel = id;
+                }
+            }).navGrid("#gdCustomersPager");
+ 
+            
+//            Proxy.GetCustomerList(function(custList) {
+//                alert(custList); // object is in right format                
+//                gdCustomers.addJSONData(custList);
+//            });
+ 
+//                for (var i = 0; i < custList.total; i++) {
+//                     gdCustomers.addRowData(i.toString(), custList.rows[i]);
+//                }
+//            }, onPageError);
+        });
+    </script> 
+    
+    <ww:ScriptContainer ID="scripts" runat="server" RenderMode="Header">
+        <Scripts>
+            <script src="{{STATIC}}js/jquery.js" resource="jquery"></script>
+            <script src="https://www.west-wind.com/WestWindWebToolkit/Samples/wwSC.axd?r=Westwind.Web.Controls.Resources.ww.jquery.js" resource="ww.jquery"></script>
+ 
+            <script src="{{STATIC}}js/jquery-ui-custom.min.js" type="text/javascript"></script>
+            <script src="{{STATIC}}js/grid.locale-en.js" type="text/javascript"></script>
+            <script src="{{STATIC}}js/jquery.jqGrid.min.js" type="text/javascript"></script>
+        </Scripts>
+    </ww:ScriptContainer> -->
+
+
+  <script>
+   $("#ex2").slider({});
+    function doSearch(value){
+      alert('You input: ' + value);
+    }
+
+    </script>
+  
+</body>
+</html>

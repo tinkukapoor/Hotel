@@ -1,0 +1,108 @@
+
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+{% include "header.html" %}
+
+
+
+{% block main %}
+
+	{% if form.errors %}
+		<p class="error" >Sorry, Not a valid username or password</p>
+
+	{% endif %}
+    	
+    	<div class="modal-dialog panel-body">
+    	<article class="col-sm-12 maincontent" style="" >
+        <form class="form-horizontal" name="LoginForm" action="/Hotel/auth/" method="post">
+
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+
+        
+		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="" >
+            <label class="control-label" for="username">Username *</label>
+            <div class="controls">
+                <input type="text" id="username" value="" name="username" placeholder="Username" style="">
+            </div>
+        </div>
+
+		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="">
+            <label class="control-label" for="password">Password *</label>
+            <div class="controls">
+                <input type="password" value="" name="password" id="password" placeholder="Password">
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </div>
+ 			
+        </form>
+    	</article>
+    	</div>  
+{% endblock %}
+
+
+
+
+<style type="text/css">
+	
+.modal-dialog {
+
+	margin-top: 10%;
+	position: relative;   
+    background-color: #8FBC8F;
+    width: 25%;
+    border-radius: 3px 3px 0 0;
+    outline: medium none;
+	font-size: 15px;    
+}
+
+</style>
+
+
+
+ <!-- <div class="row">
+
+			<form class="form-horizontal" action="/accounts/auth/" name="dinesh" method="POST">
+
+
+				{% csrf_token %}
+				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="padding-top: 10%;">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Sign in to your account</h3>
+							
+							<form>
+								<div class="top-margin">
+									<label>Username/Email <span class="text-danger">*</span></label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="top-margin">
+									<label>Password <span class="text-danger">*</span></label>
+									<input type="password" class="form-control">
+								</div>
+
+								<div class="row">
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-action" type="submit">Sign in</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+				</form>
+			</article>
+			
+			
+		</div> -->
+ 
+

@@ -1,0 +1,43 @@
+
+
+<h1>employee</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>contact_no</th>
+    <th>address</th>
+    <th>department</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+
+
+</thead>
+<tbody>
+    {% for employee in object_list %}
+    <tr>
+    <td>{{ employee.first_name }}</td>
+    <td>{{ employee.last_name }}</td>
+    <td>{{ employee.contact_no }}</td>
+    <td>{{ employee.address }}</td>
+    <td>{{ employee.department}}</td>
+    <td><a href="{% url "employee_view" employee.id %}">view</a></td>
+    <td><a href="{% url "employee_edit" employee.id %}">edit</a></td>
+    <td><a href="{% url "employee_delete" employee.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+    
+
+</tbody>
+</table>
+
+    <a href="{% url "employee_new" %}">New</a>
+
+
+
+
+

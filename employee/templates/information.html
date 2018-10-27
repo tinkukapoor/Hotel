@@ -1,0 +1,64 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+<html>
+<head>
+
+	<title>information</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+	<link rel="stylesheet" href="{{STATIC}}css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="{{STATIC}}css/main.css">
+	<link rel="stylesheet" href="{{STATIC}}css/js-image-slider.css">
+
+
+
+</head>
+
+
+<body>
+	<div class="column"> 
+        <img src="{{STATIC}}images/index1.jpeg" />
+	    <img src="{{STATIC}}images/index3.jpeg" />
+        <img src="{{STATIC}}images/index4.jpeg" />
+        <img src="{{STATIC}}images/index.jpeg" />
+    <p>The purpose of breaks is not just to recover from everyday life. We are also provide the opportunity to relish a sense of freedom! The freedom to be able to do, see, try and experience anything that you want to. Time is valuable, so free time should be valued accordingly! Take time out to discover new things. We were as free as birds, so we could fly wherever we wanted.Hotelmanali  is a trading name of manali Welcome Tours and is one of India largest Incoming Tour Operators, who have been providing hotel accommodation since 2000. We offer a selection of hotels in every county in India. To date we have made bookings for over 850,000 clients, and last year we booked over 80,000.
+
+In addition to booking hotels we also can book cars, group tours, suggest itineraries and help you plan the perfect holiday or vacation in India. All enquiries, are dealt with by real people, people based in India who can add an extra dimension to the booking process by suggesting alternatives, like little hidden gem's that no one else knows about. We are the experts; we have been booking hotels for years, we know how to get you the maximum value and enjoyment out of your trip to India(Manali). With such a strong and lengthy track record you can feel safe booking with Hotelmanali - go on try us!
+
+Hotelmanali is fully bonded and licensed by the indian authority.
+
+Contact us: Hotelmanali sisma road manali or e-mail hotels@hotelmanali.com.
+
+Holiday in Manali: If you're looking for help organising your dream holiday in Manali, get in touch with our partner site Authentic India(Manali). They can arrange everything for you including accommodation, transport, guided trips, car rental and much more.  </p>	
+	</div>
+	<div>
+        
+    </div>
+
+
+<script type="text/javascript">
+        //The following script is for the group 2 navigation buttons.
+        function switchAutoAdvance() {
+            imageSlider.switchAuto();
+            switchPlayPauseClass();
+        }
+        function switchPlayPauseClass() {
+            var auto = document.getElementById('auto');
+            var isAutoPlay = imageSlider.getAuto();
+            auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+            auto.title = isAutoPlay ? "Pause" : "Play";
+        }
+        switchPlayPauseClass();
+    </script>
+
+
+	<script src="{{STATIC}}js/template.js"></script>
+	<script src="{{STATIC}}js/js-image-slider.js"></script>
+
+</body>
+
+

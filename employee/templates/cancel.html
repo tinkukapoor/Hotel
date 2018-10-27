@@ -1,0 +1,42 @@
+<html>
+<head>
+<body>
+	<div>
+	<p> transaction failure </p>
+	</div>
+	<div class="container" id="transactionfailure">
+
+		
+		<div class="row">
+			
+			<!-- Article main content -->
+			<article class="col-md-12 maincontent">
+	
+				<div id="sliderFrame" style="background-color: gray">
+			        <div id="slider">
+					<img src="{{STATIC}}images/merchant_screen_six.jpg" />
+
+
+	<script type="text/javascript">
+        //The following script is for the group 2 navigation buttons.
+        function switchAutoAdvance() {
+            imageSlider.switchAuto();
+            switchPlayPauseClass();
+        }
+        function switchPlayPauseClass() {
+            var auto = document.getElementById('auto');
+            var isAutoPlay = imageSlider.getAuto();
+            auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+            auto.title = isAutoPlay ? "Pause" : "Play";
+        }
+        switchPlayPauseClass();
+    	</script>
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="{{STATIC}}js/template.js"></script>
+	<script src="{{STATIC}}js/js-image-slider.js"></script>
+	
+</body>
+</head>
+</html>

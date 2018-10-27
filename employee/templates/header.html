@@ -1,0 +1,59 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+
+<head>
+
+	<title>Dashboard</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="{{STATIC}}css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{STATIC}}css/font-awesome.min.css">
+
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="{{STATIC}}css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="{{STATIC}}css/main.css">
+	<link rel="stylesheet" href="{{STATIC}}css/js-image-slider.css">
+	
+
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" style="background-color: #FFFFFF;">
+		<div class="container" >
+			<div class="navbar-header" >
+			<img src="{{STATIC}}images/logo.png" style="margin-top: auto;" alt="logo" />
+				<!--<img src="{{STATIC}}images/PS_Name(2).jpg" style="margin-top: auto;" alt="logo" />!-->
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="" >
+				
+				</a>
+			</div>
+			<div class="navbar-collapse collapse" style="font-size: 250%; margin-top: auto;">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="/">Home</a></li>
+					<li class="active"><a href="/Hotel/aboutus/">About Us</a></li>
+					<li class="active"><a href="/Hotel/services/">Product & Services</a></li>
+					<li class="active"><a href="/#contactus">Contact Us</a></li>
+					<li class="active"><a href="/Hotel/informations/">information</a></li>
+					<li class="active"><a href="/employ/employee/">details</a></li>
+					{% if user.is_authenticated %}
+					<li class="active" style="cursor:pointer"><a onclick="myFunction()">Goverment Data</a></li>
+					<li class="active"><a href="/">Dashboard</a></li>
+					<li class="active"><a href="/Hotel/logout/">Logout</a></li>
+					{% else %}
+					<li class="active"><a href="/Hotel/login/">Login</a></li>
+					<li class="active"><a href="/Hotel/register/">Register</a></li>
+					{% endif %}
+					
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	
+</head>
+
+
+

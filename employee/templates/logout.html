@@ -1,0 +1,28 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+{% include "header.html" %}
+
+
+{% block content %}
+
+<div class="logout">
+<h2>Successfully Logout</h2>
+<p> Click <a href="/Hotel/login/">here</a> to login again</p>
+
+</div>
+{% endblock %}
+
+
+<style type="text/css">
+
+.logout{
+	
+	margin-top: 10%;
+	margin-left: 35%;
+	position: relative; 
+
+}
+
+	
+</style>

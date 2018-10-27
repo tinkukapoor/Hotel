@@ -1,0 +1,53 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+<html>
+<head>
+
+	<title>aboutus</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+	<link rel="stylesheet" href="{{STATIC}}css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="{{STATIC}}css/main.css">
+	<link rel="stylesheet" href="{{STATIC}}css/js-image-slider.css">
+
+
+
+</head>
+
+
+<body>
+	<div>
+          
+          
+          <img src="{{STATIC}}images/DSC00581.JPG" />
+	<p> Manali Height is one of the best hotel in manali providing high level of satisfaction to there customers.Hotel is built within the beautiful hills of manali.The hotel is made on the top of the hill where every scenic beauty of manali can be seen.Hotel have beautiful rooms with balcony attached. Hotel provides different type of services like fooding,Parking etc.There are places in manali like Arjun Gufa,Hadimba Temple,Jagatsukh,Kothi,Manu Temple,Monasteries,Rahala waterfalls,Rohtang Pass,Solang Valley,Vashist Hot Water Springs and Temple where tourist can go and visit.Our Hotel provides cab facilities to visit all these places.In manali tourist can enjoy different adeventure sports like Pirdi to Jhiri,Paragliding,Trekking,Skiing,Camping,Jeep safaris,Ride to Ladakh,Mountaineering,On two wheels,Angling.Our Hotel provides best services to customer like Large LED to watch. Parking for multi vehicle and security is also a part hotel service to customer. To proivide best deals in efficient way to customer and this increases business circle beyond the geographical limitations one faces right now</p>	
+	</div>
+	
+
+
+<script type="text/javascript">
+        //The following script is for the group 2 navigation buttons.
+        function switchAutoAdvance() {
+            imageSlider.switchAuto();
+            switchPlayPauseClass();
+        }
+        function switchPlayPauseClass() {
+            var auto = document.getElementById('auto');
+            var isAutoPlay = imageSlider.getAuto();
+            auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+            auto.title = isAutoPlay ? "Pause" : "Play";
+        }
+        switchPlayPauseClass();
+    </script>
+
+
+	<script src="{{STATIC}}js/template.js"></script>
+	<script src="{{STATIC}}js/js-image-slider.js"></script>
+
+</body>
+
+

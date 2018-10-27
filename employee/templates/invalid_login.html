@@ -1,0 +1,28 @@
+{% load static %}
+{% get_static_prefix as STATIC %}
+
+{% include "header.html" %}
+
+
+{% block content %}
+
+<div class="invalid">
+<h2>Invalid User or Password</h2>
+<p> Click <a href="/Hotel/login/">here</a> to login again</p>
+
+</div>
+{% endblock %}
+
+
+<style type="text/css">
+
+.invalid{
+	
+	margin-top: 10%;
+	margin-left: 35%;
+	position: relative; 
+
+}
+
+	
+</style>
